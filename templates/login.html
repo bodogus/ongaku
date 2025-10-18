@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ongaku | Iniciar sesión
+{% endblock title %}
+
+{% block content %}
+    <form>
+        <div>
+            <label> Nombre de usuario: </label><br>
+            <input type="text" name="username" placeholder="Jaco" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label> Contraseña: </label><br>
+            <input type="text" name="password" placeholder="Pastorius" required>
+        </div>
+
+        <br>
+
+        <div>
+            <input type="reset">
+            <input type="submit">
+        </div>
+    </form>
+{% endblock content %}

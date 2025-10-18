@@ -1,0 +1,36 @@
+* {
+  margin: 0px;
+}
+
+body {
+  background-color: beige;
+  border: 3px solid black;
+}
+header {
+  background-color: rgb(215, 210, 151);
+  color: rgb(103, 140, 56);
+  /* BOX MODEL */
+  margin: 0px;
+  border: 3px 0px;
+  padding: 10px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+a:hover {
+  color: purple;
+  font-weight: bold;
+}
+
+main {
+  margin: 5px;
+}
+
+#community {
+  border: 2px solid black;
+  border-radius: 10px;
+}
