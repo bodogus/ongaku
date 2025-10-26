@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ongaku | Usuarios
+{% endblock title %}
+
+{% block content%}
+<div>
+    <a href="{% url 'login' %}"> Iniciar sesión </a>
+    <a href="{% url 'signup' %}"> Crear cuenta </a>
+</div>
+
+<br>
+
+<h3>Usuarios registrados en Ongaku:</h3>
+
+<br>
+
+{# Aquí se deben enlistar los usuarios de la base de datos. #}
+<ul>
+    {% for user in users %}
+    <li> <a> {{user.username}}</a> </li>
+    {% endfor %}
+</ul>
+{% endblock content%}
+

@@ -5,24 +5,16 @@ Ongaku | Iniciar sesión
 {% endblock title %}
 
 {% block content %}
-    <form>
-        <div>
-            <label> Nombre de usuario: </label><br>
-            <input type="text" name="username" placeholder="Jaco" required>
-        </div>
-
-        <br>
-
-        <div>
-            <label> Contraseña: </label><br>
-            <input type="text" name="password" placeholder="Pastorius" required>
-        </div>
-
-        <br>
-
-        <div>
-            <input type="reset">
-            <input type="submit">
-        </div>
-    </form>
+<h3>Ingresa tus datos para inciar sesión.</h3>
+<form action="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <input type="reset">
+        <input type="submit">
+    </p>
+    <br>
+    <p>¿Aún no tienes una cuenta?</p>
+    <a href="{% url 'signup' %}">Crea una cuenta aquí.</a>
+</form>
 {% endblock content %}
