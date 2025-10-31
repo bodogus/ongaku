@@ -13,8 +13,9 @@ Ongaku | Crear cuenta
     {% csrf_token %}
     {{ form.as_p}}
     <div>
-        <input type="reset">
-        <input type="submit">
+        <button type="reset">Reiniciar</button>
+        <button type="submit">Crear</button>
     </div>
 </form>
+<p>¿Ya tienes una cuenta? <a href="{% url 'users:ingreso' %}">Inicia sesión aquí.</a></p>
 {% endblock content %}

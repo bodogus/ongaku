@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>{{mensaje}}</p>
+<a href="{% url 'users:ingreso' %}">Inicia sesión aquí.</a>
+{% endblock content%}

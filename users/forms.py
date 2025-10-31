@@ -1,11 +1,17 @@
+#Esto es para el formulario de crear cuenta.
 from django import forms
-from .models import User
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 
-class SignUpForm(forms.ModelForm):
+# Esto es para el formulario de inicio de sesión.
+from django.contrib.auth.forms import AuthenticationForm
+
+class RegistroFormulario(UserCreationForm):
+    username = forms.CharField(label="Nombre de usuario",)
+    password1 = forms.CharField(label="Contraseña")
+    password2 = forms.CharField(label="Repite la contraseña")
     class Meta:
         model = User
-        fields = ['name', 'age', 'sex', 'username', 'password']
+        fields = ['username', 'password1', 'password2']
 
-class LogInForm(forms.Form):
-    username = forms.CharField(label='Nombre de usuario:', max_length=50)
-    password = forms.CharField(label='Contraseña:', max_length=50)
+

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ongaku | Perfil
+{% endblock title %}
+
+
+{% block content %}
+<h1>Perfil de {{ usuario.username }}</h1>
+
+<ul>
+  {% for reseña in reseñas %}
+  <li>{{reseña.album}} de {{ reseña.artista }} — {{ reseña.contenido }}</li>
+  {% empty %}
+    <li>Este usuario no tiene reseñas todavía.</li>
+  {% endfor %}
+</ul>
+{% endblock content %}
+

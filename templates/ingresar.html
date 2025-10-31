@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ongaku | Iniciar sesión
+{% endblock title %}
+
+{% block content %}
+<h3>¡Inicia sesión!</h3>
+<form method="post" action={% url 'users:ingreso' %}>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <p>
+        <button type="reset">Reiniciar</button>
+        <button type="submit">Ingresar</button>
+    </p> 
+</form>
+<p>¿Aún no tienes una cuenta? <a href="{% url 'users:registro' %}">Crea una cuenta aquí.</a></p>
+{% endblock content %}

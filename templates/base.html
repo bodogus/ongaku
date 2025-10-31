@@ -13,24 +13,49 @@
 
 <body>
 <header>
-    <h1> Ongaku - 音楽</h1>
-    <nav>
-        <a href="{% url 'home' %}"> Inicio </a>
-        <a href="{% url 'list_of_users' %}"> Usuarios </a>
-        <a href="{% url 'explore' %}"> Explorar </a>
-    </nav>
+    {# Si el usuario no ha iniciado sesión. #}
+    {% if not user.is_authenticated %}
+        <h1 id="website-logo"> <a href="{% url 'home' %}">Ongaku - 音楽</a></h1>
+        <div id="container">
+            <nav>
+                <a href="{% url 'explore:home' %}">Explorar</a>
+                <a href="{% url 'reviews:crear_reseña' %}">Reseñar</a>
+            </nav>
 
+            <nav>
+                <a href="{% url 'users:registro' %}">Crear cuenta</a>
+                <a href="{% url 'users:ingreso' %}">Iniciar sesión</a>
+            </nav>
+        </div>
+
+        {# Si el usuario ya inició sesión. #}
+        {% else %}
+        <h1 id="website-logo"> <a href="{% url 'home' %}">Ongaku - 音楽</a></h1>
+        <div id="container">
+            <nav>
+                <a href="{% url 'explore:home' %}">Explorar</a>
+                <a href="{% url 'reviews:crear_reseña' %}">Reseñar</a>
+            </nav>
+
+            <nav>
+                <a id="usrname" href="{% url 'users:perfil' username=user.username %}">{{user.username}}</a>
+                <a href="{% url 'users:salir' %}">Salir</a>
+            </nav>
+        {% endif %}
 </header>
-    <main>
-    {% block content %}
-    {% endblock content %}
-    </main>
-    <hr>
-    <footer>
-        <p> Nosotros<br> 
-        Redes sociales<br>
-        Información de contacto<br> 
-        © 2025 Ongaku</p>
-    </footer>
+
+<main>
+{% block content %}
+{% endblock content %}
+</main>
+
+<hr>
+
+<footer>
+<p> Nosotros<br> 
+Redes sociales<br>
+Información de contacto<br> 
+© 2025 Ongaku</p>
+</footer>
 </body>
 </html>
